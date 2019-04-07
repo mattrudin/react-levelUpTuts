@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Modal from './components/Modal'
 import ToggleRenderPropsChildren from './components/ToggleRenderPropsChildren'
+import Modal from './components/Modal'
 
 
 class App extends Component {
@@ -12,11 +12,10 @@ class App extends Component {
           <ToggleRenderPropsChildren>
             {({func, status}) => (
               <>
-                {status && <h1>Show at the bottom of this page!</h1>}
-                <button onClick={func}>Show / Hide</button>
-                {status &&
-                <Modal>
-                  <h1>Greetings from the modal!</h1>
+                <button onClick={func}>Toggle modal</button>
+                {status && 
+                <Modal func={func} >
+                  <h1>Hello from the modal</h1>
                 </Modal>}
               </>
             )}
