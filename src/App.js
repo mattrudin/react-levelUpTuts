@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import ToggleRenderPropsChildren from './components/ToggleRenderPropsChildren'
 
@@ -7,12 +7,22 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          {/* With Fragments */}
           <ToggleRenderPropsChildren>
             {({func, status}) => (
-              <div>
+              <Fragment>
                 {status && <h1>Show me</h1>}
                 <button onClick={func}>Show / Hide</button>
-              </div>
+              </Fragment>
+            )}
+            </ToggleRenderPropsChildren> 
+          {/* With the Fragment shorthand */}
+          <ToggleRenderPropsChildren>
+            {({func, status}) => (
+              <>
+                {status && <h1>Show me</h1>}
+                <button onClick={func}>Show / Hide</button>
+              </>
             )}
             </ToggleRenderPropsChildren> 
         </header>
